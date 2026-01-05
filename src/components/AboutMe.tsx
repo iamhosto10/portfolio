@@ -12,10 +12,11 @@ export default function AboutMe() {
         </div>
 
         <p className="text-lg leading-relaxed text-slate-700 dark:text-slate-300">
-          Soy un desarrollador apasionado por crear soluciones eficientes y escalables.
-          Me especializo en el desarrollo frontend con tecnologías modernas como Next.js, React y Tailwind CSS,
-          siempre buscando la mejor experiencia de usuario y un código limpio.
-          Disfruto transformando ideas complejas en interfaces intuitivas y minimalistas.
+          Soy un desarrollador apasionado por crear soluciones eficientes y
+          escalables. Me especializo en el desarrollo frontend con tecnologías
+          modernas como Next.js, React y Tailwind CSS, siempre buscando la mejor
+          experiencia de usuario y un código limpio. Disfruto transformando
+          ideas complejas en interfaces intuitivas y minimalistas.
         </p>
       </div>
     </section>
