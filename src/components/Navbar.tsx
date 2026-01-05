@@ -45,7 +45,9 @@ export default function Navbar() {
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 dark:bg-violet-900/50 transition-colors">
             <Terminal className="h-6 w-6 text-blue-600 dark:text-violet-500 group-hover:scale-110 transition-transform" />
           </div>
-          <span className="text-xl font-bold tracking-tight">DevPortfolio</span>
+          <span className="text-xl font-bold tracking-tight">
+            Gerardo Ramirez
+          </span>
         </Link>
 
         {/* Desktop Menu */}
