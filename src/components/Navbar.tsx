@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useTheme } from "next-themes"
-import { Terminal, Menu, Sun, Moon } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
+import { Terminal, Menu, Sun, Moon } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
   SheetTrigger,
   SheetHeader,
   SheetTitle,
-} from "@/components/ui/sheet"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -21,21 +21,21 @@ const navLinks = [
   { name: "Skills", href: "/skills" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
-]
+];
 
 export default function Navbar() {
-  const pathname = usePathname()
-  const { setTheme, resolvedTheme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
+  const pathname = usePathname();
+  const { setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
 
   // Avoid hydration mismatch
   React.useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark")
-  }
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  };
 
   return (
     <nav className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur animate-in fade-in slide-in-from-top-4 duration-500">
@@ -51,7 +51,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden lg:flex lg:items-center lg:gap-8">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href
+            const isActive = pathname === link.href;
             return (
               <Link
                 key={link.name}
@@ -65,7 +65,7 @@ export default function Navbar() {
               >
                 {link.name}
               </Link>
-            )
+            );
           })}
         </div>
 
@@ -91,12 +91,12 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div className="lg:hidden flex items-center gap-2">
-           <Button
+          <Button
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
             aria-label="Toggle theme"
-             disabled={!mounted}
+            disabled={!mounted}
           >
             {mounted && resolvedTheme === "dark" ? (
               <Moon className="h-5 w-5" />
@@ -110,10 +110,10 @@ export default function Navbar() {
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+            <SheetContent side="right" className="w-75 sm:w-100">
               <SheetHeader className="mb-8 text-left">
                 <SheetTitle className="flex items-center gap-2">
-                   <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-100 dark:bg-violet-900/50">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-100 dark:bg-violet-900/50">
                     <Terminal className="h-5 w-5 text-blue-600 dark:text-violet-500" />
                   </div>
                   DevPortfolio
@@ -121,7 +121,7 @@ export default function Navbar() {
               </SheetHeader>
               <div className="flex flex-col gap-4">
                 {navLinks.map((link) => {
-                  const isActive = pathname === link.href
+                  const isActive = pathname === link.href;
                   return (
                     <Link
                       key={link.name}
@@ -135,10 +135,10 @@ export default function Navbar() {
                     >
                       {link.name}
                     </Link>
-                  )
+                  );
                 })}
                 <div className="mt-8">
-                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                     Download CV
                   </Button>
                 </div>
@@ -148,5 +148,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-  )
+  );
 }
