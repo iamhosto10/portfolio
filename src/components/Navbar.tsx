@@ -1,8 +1,10 @@
 "use client"
 
+import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Terminal, Menu } from "lucide-react"
+import { useTheme } from "next-themes"
+import { Terminal, Menu, Sun, Moon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -23,6 +25,17 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname()
+  const { setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  // Avoid hydration mismatch
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const toggleTheme = () => {
+    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+  }
 
   return (
     <nav className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur animate-in fade-in slide-in-from-top-4 duration-500">
@@ -36,7 +49,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex lg:gap-8">
+        <div className="hidden lg:flex lg:items-center lg:gap-8">
           {navLinks.map((link) => {
             const isActive = pathname === link.href
             return (
@@ -56,15 +69,41 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden lg:flex">
+        {/* Desktop Actions */}
+        <div className="hidden lg:flex lg:items-center lg:gap-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            disabled={!mounted}
+          >
+            {mounted && resolvedTheme === "dark" ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )}
+          </Button>
           <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
             Download CV
           </Button>
         </div>
 
         {/* Mobile Menu */}
-        <div className="lg:hidden">
+        <div className="lg:hidden flex items-center gap-2">
+           <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+             disabled={!mounted}
+          >
+            {mounted && resolvedTheme === "dark" ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )}
+          </Button>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Open Menu">
