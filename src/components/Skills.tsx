@@ -1,13 +1,13 @@
-import React from "react"
-import { Monitor, Database, Cloud, Check } from "lucide-react"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import React from "react";
+import { Monitor, Database, Cloud, Check } from "lucide-react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 interface SkillCategory {
-  title: string
-  icon: React.ElementType
-  skills: string[]
-  colorVar: string
-  bgVar: string
+  title: string;
+  icon: React.ElementType;
+  skills: string[];
+  colorVar: string;
+  bgVar: string;
 }
 
 const skillsData: SkillCategory[] = [
@@ -32,18 +32,19 @@ const skillsData: SkillCategory[] = [
     colorVar: "var(--skill-cloud)",
     bgVar: "var(--skill-cloud-bg)",
   },
-]
+];
 
 export function Skills() {
   return (
-    <section className="py-24 w-full">
+    <section className="mx-auto max-w-6xl px-4 py-10 ">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="mb-12 space-y-4">
           <h2 className="text-3xl font-bold tracking-tighter text-foreground sm:text-4xl md:text-5xl">
             Mis Habilidades
           </h2>
           <p className="text-muted-foreground text-lg max-w-[700px]">
-            Tecnologías que utilizo para construir aplicaciones web escalables y eficientes.
+            Tecnologías que utilizo para construir aplicaciones web escalables y
+            eficientes.
           </p>
         </div>
 
@@ -59,7 +60,7 @@ export function Skills() {
                   className="rounded-lg p-3 w-fit mb-4"
                   style={{
                     backgroundColor: category.bgVar,
-                    color: category.colorVar
+                    color: category.colorVar,
                   }}
                 >
                   <category.icon className="w-8 h-8" />
@@ -71,7 +72,9 @@ export function Skills() {
                   {category.skills.map((skill) => (
                     <li key={skill} className="flex items-center gap-3">
                       <Check className="w-5 h-5 shrink-0 text-[var(--check-color)]" />
-                      <span className="text-muted-foreground font-medium">{skill}</span>
+                      <span className="text-muted-foreground font-medium">
+                        {skill}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -81,5 +84,5 @@ export function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }

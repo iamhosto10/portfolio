@@ -85,6 +85,13 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-about-icon: var(--about-icon);
   --color-about-text-body: var(--about-text-body);
+  --color-skill-frontend: var(--skill-frontend);
+  --color-skill-frontend-bg: var(--skill-frontend-bg);
+  --color-skill-backend: var(--skill-backend);
+  --color-skill-backend-bg: var(--skill-backend-bg);
+  --color-skill-cloud: var(--skill-cloud);
+  --color-skill-cloud-bg: var(--skill-cloud-bg);
+  --color-check-color: var(--check-color);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
