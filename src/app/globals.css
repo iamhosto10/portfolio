@@ -20,6 +20,15 @@
   --accent-foreground: #0f172a;
   --destructive: #ef4444;
   --destructive-foreground: #f8fafc;
+
+  /* Skill tokens */
+  --skill-frontend: oklch(0.6 0.18 250);
+  --skill-frontend-bg: oklch(0.95 0.05 250);
+  --skill-backend: oklch(0.55 0.2 290);
+  --skill-backend-bg: oklch(0.95 0.05 290);
+  --skill-cloud: oklch(0.65 0.18 45);
+  --skill-cloud-bg: oklch(0.96 0.04 45);
+  --check-color: oklch(0.6 0.15 145);
 }
 
 .dark {
@@ -39,6 +48,15 @@
   --accent-foreground: #f8fafc;
   --destructive: #7f1d1d;
   --destructive-foreground: #f8fafc;
+
+  /* Skill tokens */
+  --skill-frontend: oklch(0.8 0.1 250);
+  --skill-frontend-bg: oklch(0.3 0.1 250 / 0.3);
+  --skill-backend: oklch(0.8 0.1 290);
+  --skill-backend-bg: oklch(0.3 0.1 290 / 0.3);
+  --skill-cloud: oklch(0.85 0.1 45);
+  --skill-cloud-bg: oklch(0.3 0.1 45 / 0.3);
+  --check-color: oklch(0.7 0.15 250);
 }
 
 @theme inline {
