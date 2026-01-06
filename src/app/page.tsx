@@ -1,6 +1,6 @@
-import { AboutMe } from "@/components/AboutMe";
-import { Hero } from "@/components/Hero";
-import { Skills } from "@/components/Skills";
+import AboutMe from "@/components/AboutMe/AboutMe";
+import Hero from "@/components/Hero/Hero";
+import Skills from "@/components/Skills/Skills";
 
 export default function Home() {
   return (
