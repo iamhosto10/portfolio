@@ -4,9 +4,8 @@
 @variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
+  --background: #ffffffcc; /* semi-transparent white */
   --foreground: #171717;
-  /* Light mode primary: Azul Rey #2563EB */
   --primary: #2563eb;
   --primary-foreground: #ffffff;
   --muted: #f1f5f9;
@@ -21,11 +20,16 @@
   --destructive: #ef4444;
   --destructive-foreground: #f8fafc;
 
-  /* About Me variables (OKLCH) */
+  /* icono principal */
+  --icon-primary: oklch(0.588 0.158 241.966);
+  --background-icon-primary: oklch(0.914 0.035 264.476);
+
+  /* social network */
+  --social-network-icon: oklch(0.527 0.01 274.529);
+  --social-network-hover: oklch(0.208 0.013 285.805);
+
   --about-icon: oklch(0.55 0.22 260);
   --about-text-body: oklch(0.4 0.02 260);
-
-  /* Skill tokens */
   --skill-frontend: oklch(0.6 0.18 250);
   --skill-frontend-bg: oklch(0.95 0.05 250);
   --skill-backend: oklch(0.55 0.2 290);
@@ -36,9 +40,8 @@
 }
 
 .dark {
-  --background: #0a0a0a;
+  --background: #0a0a0acc;
   --foreground: #ededed;
-  /* Dark mode primary: Violeta Vibrante #7C3AED */
   --primary: #7c3aed;
   --primary-foreground: #ffffff;
   --muted: #1e293b;
@@ -53,11 +56,15 @@
   --destructive: #7f1d1d;
   --destructive-foreground: #f8fafc;
 
-  /* About Me variables (OKLCH) */
-  --about-icon: oklch(0.7 0.18 260);
-  --about-text-body: oklch(0.85 0.01 260);
+  /* icono principal */
+  --icon-primary: oklch(0.606 0.25 285.93);
+  --background-icon-primary: oklch(0.25 0.129 281.57 / 0.5);
 
-  /* Skill tokens */
+  /* social network */
+  --social-network-icon: oklch(0.707 0.009 274.52);
+  --social-network-hover: oklch(0.985 0.001 285.823);
+
+  --about-text-body: oklch(0.85 0.01 260);
   --skill-frontend: oklch(0.8 0.1 250);
   --skill-frontend-bg: oklch(0.3 0.1 250 / 0.3);
   --skill-backend: oklch(0.8 0.1 290);
@@ -83,7 +90,15 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-  --color-about-icon: var(--about-icon);
+
+  /* icono principal */
+  --color-icon-primary: var(--icon-primary);
+  --color-background-icon-primary: var(--background-icon-primary);
+
+  /* social network */
+  --color-social-network-icon: var(--social-network-icon);
+  --color-social-network-hover: var(--social-network-hover);
+
   --color-about-text-body: var(--about-text-body);
   --color-skill-frontend: var(--skill-frontend);
   --color-skill-frontend-bg: var(--skill-frontend-bg);

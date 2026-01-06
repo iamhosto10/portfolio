@@ -3,12 +3,12 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
   return (
-    <footer className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-slate-50 dark:bg-zinc-950 animate-footer-enter">
+    <footer className="w-full border-t bg-background animate-footer-enter">
       <div className="container mx-auto px-4 py-8 lg:py-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4">
         {/* Branding (Left) */}
         <div className="flex items-center gap-2 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 dark:bg-violet-900/50 transition-colors">
-            <Terminal className="h-6 w-6 text-blue-600 dark:text-violet-500 group-hover:scale-110 transition-transform" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-background-icon-primary  transition-colors">
+            <Terminal className="h-6 w-6 text-icon-primary group-hover:scale-110 transition-transform" />
           </div>
           <span className="text-sm font-bold tracking-tight">
             Gerardo Ramirez
@@ -21,7 +21,7 @@ const Footer = () => {
             variant="ghost"
             size="icon"
             asChild
-            className="h-10 w-10 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
+            className="h-10 w-10 text-social-network-icon hover:text-social-network-hover"
           >
             <a
               href="https://github.com"
@@ -36,7 +36,7 @@ const Footer = () => {
             variant="ghost"
             size="icon"
             asChild
-            className="h-10 w-10 text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
+            className="h-10 w-10 text-social-network-icon hover:text-social-network-hover"
           >
             <a
               href="https://linkedin.com"
@@ -51,7 +51,7 @@ const Footer = () => {
 
         {/* Copyright (Right) */}
         <div className="text-center md:text-right order-3">
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">
+          <p className="text-xs text-muted-foreground">
             © 2026 Gerardo Ramírez. All rights reserved.
           </p>
         </div>

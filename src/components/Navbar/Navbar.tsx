@@ -38,12 +38,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur animate-in fade-in slide-in-from-top-4 duration-500">
+    <nav className="sticky top-0 z-40 w-full border-b bg-background backdrop-blur animate-in fade-in slide-in-from-top-4 duration-1000">
       <div className="flex items-center justify-between px-4 py-4 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 dark:bg-violet-900/50 transition-colors">
-            <Terminal className="h-6 w-6 text-blue-600 dark:text-violet-500 group-hover:scale-110 transition-transform" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-background-icon-primary transition-colors">
+            <Terminal className="h-6 w-6 text-icon-primary group-hover:scale-120 transition-transform" />
           </div>
           <span className="text-xl font-bold tracking-tight">
             Gerardo Ramirez
@@ -115,8 +115,8 @@ export default function Navbar() {
             <SheetContent side="right" className="w-75 sm:w-100">
               <SheetHeader className="mb-8 text-left">
                 <SheetTitle className="flex items-center gap-2">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-100 dark:bg-violet-900/50">
-                    <Terminal className="h-5 w-5 text-blue-600 dark:text-violet-500" />
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-background-icon-primary">
+                    <Terminal className="h-5 w-5 text-icon-primary" />
                   </div>
                   DevPortfolio
                 </SheetTitle>
