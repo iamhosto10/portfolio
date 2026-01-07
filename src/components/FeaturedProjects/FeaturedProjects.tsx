@@ -42,6 +42,20 @@ const PROJECTS: Project[] = [
     ],
     stack: ["React", "Python", "AWS Lambda"],
   },
+  {
+    id: 3,
+    name: "AI Image Generator",
+    category: "Generative AI • Creative Tools",
+    status: "mvp",
+    problem:
+      "Creatives needed a rapid prototyping tool to generate high-fidelity assets without the steep learning curve of complex 3D modeling software.",
+    features: [
+      "Text-to-image synthesis",
+      "Style transfer capabilities",
+      "Cloud-based rendering",
+    ],
+    stack: ["React", "Python", "AWS Lambda"],
+  },
 ];
 
 const getStatusColor = (status: Project["status"]) => {
@@ -70,9 +84,9 @@ const getStatusLabel = (status: Project["status"]) => {
   }
 };
 
-export const FeaturedProjects = () => {
+const FeaturedProjects = () => {
   return (
-    <section className="py-16 md:py-24">
+    <section className="container max-w-5xl mx-auto px-6 md:px-16 py-10">
       <div className="container max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -100,7 +114,9 @@ export const FeaturedProjects = () => {
               <div className="relative aspect-video bg-muted rounded-t-xl overflow-hidden group">
                 {/* Placeholder content for image */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20">
-                    <span className="text-6xl font-black opacity-20 select-none">IMAGE</span>
+                  <span className="text-6xl font-black opacity-20 select-none">
+                    IMAGE
+                  </span>
                 </div>
 
                 <div
@@ -157,11 +173,14 @@ export const FeaturedProjects = () => {
 
                 {/* Actions */}
                 <div className="flex gap-4">
-                  <Button variant="default" className="flex-1 gap-2">
+                  <Button className="rounded-md bg-primary shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all">
                     <Eye className="w-4 h-4" />
                     Demo
                   </Button>
-                  <Button variant="outline" className="flex-1 gap-2">
+                  <Button
+                    variant={"outline"}
+                    className="hover:-translate-y-0.5 transition-all shadow-lg rounded-md"
+                  >
                     <Code2 className="w-4 h-4" />
                     Código
                   </Button>
@@ -174,3 +193,5 @@ export const FeaturedProjects = () => {
     </section>
   );
 };
+
+export default FeaturedProjects;
