@@ -63,7 +63,7 @@ export const ExperienceSection = () => {
               <h3 className="font-bold text-xl text-foreground">{item.role}</h3>
               <Badge
                 variant="secondary"
-                className="bg-primary/20 text-primary rounded-md cursor-pointer"
+                className="bg-primary/20 text-primary rounded-md cursor-pointer w-fit"
               >
                 {item.date}
               </Badge>

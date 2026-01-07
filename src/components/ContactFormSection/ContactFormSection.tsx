@@ -45,7 +45,7 @@ export default function ContactFormSection() {
         {/* Quick Contact Cards */}
         <div className="mb-10 mt-10 grid grid-cols-1 gap-4">
           {/* Email Card */}
-          <Card className="border shadow-xl rounded-xl border-muted/50 dark:shadow-primary/10 transition-shadow cursor-pointer">
+          <Card className="border shadow-lg md:shadow-xl rounded-xl border-muted/50 md:dark:shadow-primary/10 dark:shadow-primary/70 transition-shadow cursor-pointer">
             <CardContent className="p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted/50">
@@ -77,7 +77,7 @@ export default function ContactFormSection() {
           </Card>
 
           {/* LinkedIn Card */}
-          <Card className="border shadow-xl rounded-xl border-muted/50 dark:shadow-primary/10 transition-shadow cursor-pointer">
+          <Card className="border shadow-lg md:shadow-xl rounded-xl border-muted/50 md:dark:shadow-primary/10 dark:shadow-primary/70 transition-shadow cursor-pointer">
             <CardContent className="p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-muted/50">
@@ -117,7 +117,7 @@ export default function ContactFormSection() {
         </div>
 
         {/* Main Form */}
-        <Card className="border shadow-xl rounded-xl border-muted/50 dark:shadow-primary/10 p-8 ">
+        <Card className="border shadow-lg md:shadow-xl rounded-xl border-muted/50 md:dark:shadow-primary/10 dark:shadow-primary/70 p-8 ">
           <form className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="name">Nombre completo</Label>

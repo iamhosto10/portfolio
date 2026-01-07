@@ -41,7 +41,7 @@ export default function CorePrinciples() {
             return (
               <Card
                 key={index}
-                className="border shadow-xl rounded-xl border-muted/50 dark:shadow-primary/10 transition-shadow duration-300 hover:shadow-md "
+                className="border shadow-lg md:shadow-xl rounded-xl border-muted/50 md:dark:shadow-primary/10 dark:shadow-primary/70 transition-shadow duration-300 hover:shadow-md "
               >
                 <CardContent className="p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">

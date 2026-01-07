@@ -12,6 +12,7 @@ import {
   SheetTrigger,
   SheetHeader,
   SheetTitle,
+  SheetClose,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
@@ -126,18 +127,20 @@ export default function Navbar() {
                 {navLinks.map((link) => {
                   const isActive = pathname === link.href;
                   return (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      className={cn(
-                        "text-lg font-medium transition-colors hover:text-primary",
-                        isActive
-                          ? "text-primary font-semibold"
-                          : "text-muted-foreground"
-                      )}
-                    >
-                      {link.name}
-                    </Link>
+                    <SheetClose asChild key={link.name}>
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className={cn(
+                          "text-lg font-medium transition-colors hover:text-primary",
+                          isActive
+                            ? "text-primary font-semibold"
+                            : "text-muted-foreground"
+                        )}
+                      >
+                        {link.name}
+                      </Link>
+                    </SheetClose>
                   );
                 })}
                 <div className="mt-8">
