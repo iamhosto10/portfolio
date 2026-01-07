@@ -3,8 +3,8 @@ import { Card, CardHeader, CardContent } from "@/components/ui/card";
 
 export default function MyStoryCard() {
   return (
-    <div className="container max-w-5xl mx-auto sm:px-6 md:px-16 py-12">
-      <Card className="bg-secondary/50 border shadow-2xl rounded-xl p-6 sm:p-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
+    <div className="container max-w-5xl mx-auto px-6 md:px-16 py-10">
+      <Card className="bg-secondary/50 border shadow-xl rounded-xl p-6 sm:p-8 animate-in fade-in slide-in-from-bottom-6 duration-700">
         <CardHeader className="p-0 space-y-0 flex flex-row items-center gap-3 pb-4">
           <BookOpen className="text-primary size-6" />
           <h3 className="font-bold text-lg text-foreground">My Story</h3>
