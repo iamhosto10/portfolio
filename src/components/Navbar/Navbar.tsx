@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Terminal, Menu, Sun, Moon, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher";
 import {
   Sheet,
   SheetContent,
@@ -74,6 +75,7 @@ export default function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden lg:flex lg:items-center lg:gap-4">
+          <LanguageSwitcher />
           <Button
             variant="ghost"
             size="icon"
@@ -95,6 +97,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div className="lg:hidden flex items-center gap-2">
+          <LanguageSwitcher />
           <Button
             variant="ghost"
             size="icon"
