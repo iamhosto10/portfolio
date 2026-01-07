@@ -17,12 +17,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function ContactFormSection() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   const [copied, setCopied] = React.useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText("hola@tucorreo.com");
+    navigator.clipboard.writeText("gerardoramirez4400@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -35,11 +40,10 @@ export default function ContactFormSection() {
           <Hand className="h-7 w-7 text-primary" />
         </div>
         <h2 className="text-3xl font-bold text-center text-foreground">
-          Hablemos de tu proyecto
+          {t.contactForm.title}
         </h2>
         <p className="text-muted-foreground text-center mt-2 max-w-lg mx-auto">
-          Estoy disponible para nuevos retos. Cuéntame tu idea y la haremos
-          realidad.
+          {t.contactForm.description}
         </p>
 
         {/* Quick Contact Cards */}
@@ -53,10 +57,10 @@ export default function ContactFormSection() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
-                    EMAIL
+                    {t.contactForm.email}
                   </p>
                   <p className="text-sm font-bold text-foreground">
-                    hola@tucorreo.com
+                    gerardoramirez4400@gmail.com
                   </p>
                 </div>
               </div>
@@ -71,7 +75,7 @@ export default function ContactFormSection() {
                 ) : (
                   <Copy className="h-4 w-4" />
                 )}
-                <span className="sr-only">Copiar email</span>
+                <span className="sr-only">{t.contactForm.copyEmail}</span>
               </Button>
             </CardContent>
           </Card>
@@ -112,7 +116,7 @@ export default function ContactFormSection() {
         {/* Divider Visual */}
         <div className="text-center mb-8">
           <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground bg-muted/30 px-2">
-            O envíame un mensaje directo
+            {t.contactForm.directMessage}
           </span>
         </div>
 
@@ -120,12 +124,12 @@ export default function ContactFormSection() {
         <Card className="border shadow-lg md:shadow-xl rounded-xl border-muted/50 md:dark:shadow-primary/10 dark:shadow-primary/70 p-8 ">
           <form className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="name">Nombre completo</Label>
+              <Label htmlFor="name">{t.contactForm.labelName}</Label>
               <div className="relative">
                 <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="name"
-                  placeholder="Tu nombre"
+                  placeholder={t.contactForm.placeholderName}
                   className="pl-10"
                   type="text"
                 />
@@ -133,12 +137,12 @@ export default function ContactFormSection() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">Correo electrónico</Label>
+              <Label htmlFor="email">{t.contactForm.labelEmail}</Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="email"
-                  placeholder="tu@email.com"
+                  placeholder={t.contactForm.placeholderEmail}
                   className="pl-10"
                   type="email"
                 />
@@ -146,10 +150,10 @@ export default function ContactFormSection() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message">Detalles del proyecto</Label>
+              <Label htmlFor="message">{t.contactForm.labelDetails}</Label>
               <Textarea
                 id="message"
-                placeholder="Cuéntame sobre tu proyecto..."
+                placeholder={t.contactForm.placeholderDetails}
                 className="min-h-30"
               />
             </div>
@@ -159,7 +163,7 @@ export default function ContactFormSection() {
               size="lg"
               className="rounded-md bg-primary shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all w-full"
             >
-              Enviar Mensaje
+              {t.contactForm.sendButton}
               <Send className="ml-2 h-4 w-4" />
             </Button>
           </form>

@@ -1,5 +1,7 @@
 "use client";
 
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -126,6 +128,95 @@ const TECH_DATA: Category[] = [
 
 export default function TechStackExplorer() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const TECH_DATA: Category[] = [
+    {
+      id: "frontend",
+      title: t.techStackExplorer.tabs[0],
+      icon: Layout,
+      skills: [
+        {
+          name: "React",
+          description: t.techStackExplorer.frontendDescription[0],
+          icon: SiReact,
+        },
+        {
+          name: "Next.js",
+          description: t.techStackExplorer.frontendDescription[1],
+          icon: SiNextdotjs,
+        },
+        {
+          name: "Tailwind CSS",
+          description: t.techStackExplorer.frontendDescription[2],
+
+          icon: SiTailwindcss,
+        },
+        {
+          name: "Framer Motion",
+          description: t.techStackExplorer.frontendDescription[3],
+          icon: SiFramer,
+        },
+      ],
+    },
+    {
+      id: "backend",
+      title: t.techStackExplorer.tabs[1],
+
+      icon: Server,
+      skills: [
+        {
+          name: "Node.js",
+          description: t.techStackExplorer.backendDescription[0],
+
+          icon: SiNodedotjs,
+        },
+        {
+          name: "PostgreSQL",
+          description: t.techStackExplorer.backendDescription[1],
+          icon: SiPostgresql,
+        },
+        {
+          name: "Redis",
+          description: t.techStackExplorer.backendDescription[2],
+          icon: SiRedis,
+        },
+        {
+          name: "Docker",
+          description: t.techStackExplorer.backendDescription[3],
+          icon: SiDocker,
+        },
+      ],
+    },
+    {
+      id: "tools",
+      title: t.techStackExplorer.tabs[2],
+      icon: Wrench,
+      skills: [
+        {
+          name: "Git",
+          description: t.techStackExplorer.toolsDescription[0],
+          icon: SiGit,
+        },
+        {
+          name: "Figma",
+          description: t.techStackExplorer.toolsDescription[0],
+          icon: SiFigma,
+        },
+        {
+          name: "Agile",
+          description: t.techStackExplorer.toolsDescription[0],
+          icon: SiJira,
+        },
+        {
+          name: "Vercel",
+          description: t.techStackExplorer.toolsDescription[0],
+          icon: SiVercel,
+        },
+      ],
+    },
+  ];
 
   const filteredCategories =
     activeCategory === "All"
@@ -140,11 +231,10 @@ export default function TechStackExplorer() {
         {/* Header */}
         <div className="text-center">
           <h2 className="text-3xl font-bold text-foreground">
-            Habilidades Técnicas
+            {t.techStackExplorer.title}
           </h2>
           <p className="max-w-2xl mx-auto mt-4 text-muted-foreground">
-            Explora mi stack tecnológico organizado por áreas de
-            especialización. Selecciona una categoría para filtrar.
+            {t.techStackExplorer.description}
           </p>
         </div>
 
@@ -155,7 +245,7 @@ export default function TechStackExplorer() {
               key={tab}
               onClick={() => setActiveCategory(tab)}
               className={cn(
-                "rounded-full px-6 py-2 text-sm font-medium transition-all",
+                "rounded-full px-6 py-2 text-sm font-medium transition-all cursor-pointer",
                 activeCategory === tab
                   ? "bg-primary text-primary-foreground shadow-md"
                   : "bg-transparent text-muted-foreground hover:text-foreground hover:bg-muted"

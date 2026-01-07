@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye, Code2, Zap, CheckCircle2 } from "lucide-react";
@@ -13,51 +15,6 @@ interface Project {
   features: string[];
   stack: string[];
 }
-
-const PROJECTS: Project[] = [
-  {
-    id: 1,
-    name: "Enterprise CRM",
-    category: "SaaS B2B • FinTech",
-    status: "production",
-    problem:
-      "Legacy systems were causing a 40% efficiency drop in sales tracking and customer relationship management, leading to lost revenue and frustrated teams.",
-    features: [
-      "Real-time analytics dashboard",
-      "Automated lead scoring system",
-      "Role-based access control",
-    ],
-    stack: ["Next.js", "Postgres", "Redis"],
-  },
-  {
-    id: 2,
-    name: "AI Image Generator",
-    category: "Generative AI • Creative Tools",
-    status: "mvp",
-    problem:
-      "Creatives needed a rapid prototyping tool to generate high-fidelity assets without the steep learning curve of complex 3D modeling software.",
-    features: [
-      "Text-to-image synthesis",
-      "Style transfer capabilities",
-      "Cloud-based rendering",
-    ],
-    stack: ["React", "Python", "AWS Lambda"],
-  },
-  {
-    id: 3,
-    name: "AI Image Generator",
-    category: "Generative AI • Creative Tools",
-    status: "mvp",
-    problem:
-      "Creatives needed a rapid prototyping tool to generate high-fidelity assets without the steep learning curve of complex 3D modeling software.",
-    features: [
-      "Text-to-image synthesis",
-      "Style transfer capabilities",
-      "Cloud-based rendering",
-    ],
-    stack: ["React", "Python", "AWS Lambda"],
-  },
-];
 
 const getStatusColor = (status: Project["status"]) => {
   switch (status) {
@@ -86,19 +43,61 @@ const getStatusLabel = (status: Project["status"]) => {
 };
 
 const FeaturedProjects = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const PROJECTS: Project[] = [
+    {
+      id: 1,
+      name: t.featuredProjects.project1.name,
+      category: t.featuredProjects.project1.category,
+      status: t.featuredProjects.project1.status as
+        | "production"
+        | "mvp"
+        | "research",
+      problem: t.featuredProjects.project1.problem,
+      features: t.featuredProjects.project1.features,
+      stack: t.featuredProjects.project1.stack,
+    },
+    {
+      id: 2,
+      name: t.featuredProjects.project2.name,
+      category: t.featuredProjects.project2.category,
+      status: t.featuredProjects.project2.status as
+        | "production"
+        | "mvp"
+        | "research",
+      problem: t.featuredProjects.project2.problem,
+      features: t.featuredProjects.project2.features,
+      stack: t.featuredProjects.project2.stack,
+    },
+    {
+      id: 3,
+      name: t.featuredProjects.project2.name,
+      category: t.featuredProjects.project2.category,
+      status: t.featuredProjects.project2.status as
+        | "production"
+        | "mvp"
+        | "research",
+      problem: t.featuredProjects.project2.problem,
+      features: t.featuredProjects.project2.features,
+      stack: t.featuredProjects.project2.stack,
+    },
+  ];
+
   return (
     <section className="container max-w-5xl mx-auto px-6 md:px-16 py-10">
       <div className="container max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
           <span className="rounded-full bg-primary/10 text-primary px-4 py-1.5 font-medium text-sm inline-block mb-4">
-            PORTFOLIO 2024
+            PORTFOLIO 2026
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Proyectos Destacados
+            {t.featuredProjects.title}
           </h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Soluciones Fullstack escalables y centradas en el usuario.
+            {t.featuredProjects.description}
           </p>
         </div>
 
@@ -141,7 +140,7 @@ const FeaturedProjects = () => {
                 {/* Problem Section */}
                 <div className="mb-6">
                   <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2 block">
-                    El Problema
+                    {t.featuredProjects.problem}
                   </span>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {project.problem}
@@ -177,14 +176,14 @@ const FeaturedProjects = () => {
                 <div className="flex gap-4">
                   <Button className="rounded-md bg-primary shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all">
                     <Eye className="w-4 h-4" />
-                    Demo
+                    {t.featuredProjects.demo}
                   </Button>
                   <Button
                     variant={"outline"}
                     className="hover:-translate-y-0.5 transition-all shadow-lg rounded-md"
                   >
                     <Code2 className="w-4 h-4" />
-                    Código
+                    {t.featuredProjects.code}
                   </Button>
                 </div>
               </div>

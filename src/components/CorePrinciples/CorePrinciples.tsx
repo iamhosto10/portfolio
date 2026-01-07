@@ -1,39 +1,40 @@
+"use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 import { Sparkles, Zap, DraftingCompass, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
-const principles = [
-  {
-    title: "Clean Code",
-    description:
-      "Writing code that is easy to read, easy to understand, and easy to maintain.",
-    icon: Sparkles,
-  },
-  {
-    title: "Performance",
-    description:
-      "Obsessed with Core Web Vitals and creating lightning-fast user experiences.",
-    icon: Zap,
-  },
-  {
-    title: "Scalability",
-    description:
-      "Building robust architectures designed to grow with the business needs.",
-    icon: DraftingCompass,
-  },
-  {
-    title: "Teamwork",
-    description:
-      "Strong believer in Agile methodologies, code reviews, and open communication.",
-    icon: Users,
-  },
-];
-
 export default function CorePrinciples() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const principles = [
+    {
+      title: t.corePrinciples.corePrinciple1.title,
+      description: t.corePrinciples.corePrinciple1.description,
+      icon: Sparkles,
+    },
+    {
+      title: t.corePrinciples.corePrinciple2.title,
+      description: t.corePrinciples.corePrinciple2.description,
+      icon: Zap,
+    },
+    {
+      title: t.corePrinciples.corePrinciple3.title,
+      description: t.corePrinciples.corePrinciple3.description,
+      icon: DraftingCompass,
+    },
+    {
+      title: t.corePrinciples.corePrinciple4.title,
+      description: t.corePrinciples.corePrinciple4.description,
+      icon: Users,
+    },
+  ];
   return (
     <section>
       <div className="container max-w-5xl mx-auto px-6 md:px-16 py-12">
         <h2 className="mb-8 text-2xl font-bold text-left text-foreground md:mb-12 md:text-3xl">
-          Core Principles
+          {t.corePrinciples.title}
         </h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 animate-in fade-in slide-in-from-bottom-4 duration-700">
           {principles.map((principle, index) => {

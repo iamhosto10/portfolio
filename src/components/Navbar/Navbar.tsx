@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Terminal, Menu, Sun, Moon, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import LanguageSwitcher from "@/components/LanguageSwitcher/LanguageSwitcher";
 import {
   Sheet,
   SheetContent,
@@ -15,19 +16,23 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Skills", href: "/skills" },
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function Navbar() {
   const pathname = usePathname();
   const { setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const navLinks = [
+    { name: t.nav.home, href: "/" },
+    { name: t.nav.about, href: "/about" },
+    { name: t.nav.skills, href: "/skills" },
+    { name: t.nav.projects, href: "/projects" },
+    { name: t.nav.contact, href: "/contact" },
+  ];
 
   // Avoid hydration mismatch
   React.useEffect(() => {
@@ -74,6 +79,7 @@ export default function Navbar() {
 
         {/* Desktop Actions */}
         <div className="hidden lg:flex lg:items-center lg:gap-4">
+          <LanguageSwitcher />
           <Button
             variant="ghost"
             size="icon"
@@ -95,6 +101,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div className="lg:hidden flex items-center gap-2">
+          <LanguageSwitcher />
           <Button
             variant="ghost"
             size="icon"
