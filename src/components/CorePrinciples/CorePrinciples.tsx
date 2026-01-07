@@ -28,10 +28,10 @@ const principles = [
   },
 ];
 
-export function CorePrinciples() {
+export default function CorePrinciples() {
   return (
-    <section className="py-12 md:py-16">
-      <div className="container mx-auto px-4 md:px-6">
+    <section>
+      <div className="container max-w-5xl mx-auto px-6 md:px-16 py-12">
         <h2 className="mb-8 text-2xl font-bold text-left text-foreground md:mb-12 md:text-3xl">
           Core Principles
         </h2>
@@ -41,7 +41,7 @@ export function CorePrinciples() {
             return (
               <Card
                 key={index}
-                className="border shadow-sm transition-shadow duration-300 hover:shadow-md bg-card"
+                className="border shadow-xl transition-shadow duration-300 hover:shadow-md bg-secondary/50"
               >
                 <CardContent className="p-6">
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
