@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { Terminal, Menu, Sun, Moon } from "lucide-react";
+import { Terminal, Menu, Sun, Moon, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -87,6 +87,7 @@ export default function Navbar() {
             )}
           </Button>
           <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Download className="mr-2 size-4" />
             Download CV
           </Button>
         </div>
@@ -141,6 +142,7 @@ export default function Navbar() {
                 })}
                 <div className="mt-8">
                   <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                    <Download className="mr-2 size-4" />
                     Download CV
                   </Button>
                 </div>
