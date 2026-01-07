@@ -1,4 +1,6 @@
+import CallToAction from "@/components/CallToAction/CallToAction";
 import CorePrinciples from "@/components/CorePrinciples/CorePrinciples";
+import ExperienceSection from "@/components/ExperenciaSection/ExperienceSection";
 import MyStoryCard from "@/components/MyStoryCard/MyStoryCard";
 import ProfileHeader from "@/components/ProfileHeader/ProfileHeader";
 
@@ -8,6 +10,8 @@ const page = () => {
       <ProfileHeader />
       <MyStoryCard />
       <CorePrinciples />
+      <ExperienceSection />
+      <CallToAction />
     </main>
   );
 };
