@@ -1,6 +1,11 @@
+"use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 import { User } from "lucide-react";
 
 export default function AboutMe() {
+  const { language } = useLanguage();
+  const t = translations[language];
   return (
     <div className="bg-secondary/50">
       <section className="mx-auto max-w-6xl px-4">
@@ -10,16 +15,11 @@ export default function AboutMe() {
               <div className="mb-6 flex items-center gap-2">
                 <User className="size-6 text-primary" />
                 <h2 className="text-2xl font-bold text-foreground md:text-3xl">
-                  Sobre mí
+                  {t.aboutMeLanding.title}
                 </h2>
               </div>
               <p className="text-lg leading-relaxed text-muted-foreground ">
-                Soy un desarrollador apasionado por crear soluciones eficientes
-                y escalables. Me enfoco en escribir código limpio, mantener una
-                arquitectura sólida y asegurar la mejor experiencia de usuario
-                posible. Siempre estoy aprendiendo nuevas tecnologías y buscando
-                formas de mejorar mis habilidades para entregar productos de
-                alta calidad.
+                {t.aboutMeLanding.description}
               </p>
             </div>
           </div>

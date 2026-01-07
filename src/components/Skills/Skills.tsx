@@ -1,3 +1,6 @@
+"use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 import React from "react";
 import { Monitor, Database, Cloud, Check } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
@@ -10,41 +13,43 @@ interface SkillCategory {
   bgVar: string;
 }
 
-const skillsData: SkillCategory[] = [
-  {
-    title: "Frontend Moderno",
-    icon: Monitor,
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Zustand"],
-    colorVar: "var(--skill-frontend)",
-    bgVar: "var(--skill-frontend-bg)",
-  },
-  {
-    title: "Backend Robusto",
-    icon: Database,
-    skills: ["Node.js", "Express", "PostgreSQL", "GraphQL", "Prisma"],
-    colorVar: "var(--skill-backend)",
-    bgVar: "var(--skill-backend-bg)",
-  },
-  {
-    title: "Cloud & DevOps",
-    icon: Cloud,
-    skills: ["AWS", "Docker", "CI/CD", "Vercel"],
-    colorVar: "var(--skill-cloud)",
-    bgVar: "var(--skill-cloud-bg)",
-  },
-];
-
 export default function Skills() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const skillsData: SkillCategory[] = [
+    {
+      title: t.skillsData1.title,
+      icon: Monitor,
+      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Zustand"],
+      colorVar: "var(--skill-frontend)",
+      bgVar: "var(--skill-frontend-bg)",
+    },
+    {
+      title: t.skillsData2.title,
+      icon: Database,
+      skills: ["Node.js", "Express", "PostgreSQL", "GraphQL", "Prisma"],
+      colorVar: "var(--skill-backend)",
+      bgVar: "var(--skill-backend-bg)",
+    },
+    {
+      title: t.skillsData3.title,
+      icon: Cloud,
+      skills: ["AWS", "Docker", "CI/CD", "Vercel"],
+      colorVar: "var(--skill-cloud)",
+      bgVar: "var(--skill-cloud-bg)",
+    },
+  ];
+
   return (
     <section className="mx-auto max-w-6xl px-4 py-10 ">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="mb-12 space-y-4">
           <h2 className="text-3xl font-bold tracking-tighter text-foreground sm:text-4xl md:text-5xl">
-            Mis Habilidades
+            {t.skillsLanding.title}
           </h2>
           <p className="text-muted-foreground text-lg max-w-175">
-            Tecnologías que utilizo para construir aplicaciones web escalables y
-            eficientes.
+            {t.skillsLanding.description}
           </p>
         </div>
 

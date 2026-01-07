@@ -1,8 +1,14 @@
+"use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Dot, Github, Linkedin, MapPin } from "lucide-react";
 
 export default function ProfileHeader() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <div className="flex flex-col items-center gap-4 text-center py-10 px-4 md:py-12">
       {/* Avatar Section */}
@@ -29,11 +35,11 @@ export default function ProfileHeader() {
         <div className="flex items-center justify-center gap-2 mt-2">
           <MapPin className="size-4 text-muted-foreground" />
           <span className="text-sm text-muted-foreground">
-            Medellin, Colombia
+            {t.profileHeader.location}
           </span>
           <Dot className="size-4 text-muted-foreground" />
           <span className="text-sm text-muted-foreground">
-            5+ años de experiencia
+            {t.profileHeader.experience}
           </span>
         </div>
       </div>

@@ -1,3 +1,6 @@
+"use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -9,37 +12,39 @@ interface ExperienceItem {
   stack: string[];
 }
 
-const EXPERIENCE_DATA: ExperienceItem[] = [
-  {
-    role: "Senior Fullstack Developer",
-    company: "Tech Corp Solutions",
-    date: "2022 - Present",
-    description:
-      "Leading development of scalable web applications using modern technologies. Architecting solutions and mentoring junior developers to ensure code quality and best practices.",
-    stack: ["Next.js", "TypeScript", "AWS"],
-  },
-  {
-    role: "Frontend Developer",
-    company: "Innovate Startup Inc",
-    date: "2020 - 2022",
-    description:
-      "Developed responsive user interfaces and implemented complex state management solutions. Collaborated closely with UX/UI designers to improve user experience.",
-    stack: ["React", "Redux", "SASS"],
-  },
-  {
-    role: "Junior Web Developer",
-    company: "Creative Digital Agency",
-    date: "2018 - 2020",
-    description:
-      "Assisted in the development of client websites and maintained legacy codebases. Optimized website performance and ensured cross-browser compatibility.",
-    stack: ["HTML5", "JavaScript", "PHP"],
-  },
-];
-
 export const ExperienceSection = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const EXPERIENCE_DATA: ExperienceItem[] = [
+    {
+      role: t.experienceSection.experience1.role,
+      company: t.experienceSection.experience1.company,
+      date: t.experienceSection.experience1.date,
+      description: t.experienceSection.experience1.description,
+      stack: t.experienceSection.experience1.stack,
+    },
+    {
+      role: t.experienceSection.experience2.role,
+      company: t.experienceSection.experience2.company,
+      date: t.experienceSection.experience2.date,
+      description: t.experienceSection.experience2.description,
+      stack: t.experienceSection.experience2.stack,
+    },
+    {
+      role: t.experienceSection.experience3.role,
+      company: t.experienceSection.experience3.company,
+      date: t.experienceSection.experience3.date,
+      description: t.experienceSection.experience3.description,
+      stack: t.experienceSection.experience3.stack,
+    },
+  ];
+
   return (
     <section className="container max-w-5xl mx-auto px-6 md:px-16 py-10">
-      <h2 className="text-3xl font-bold mb-12 text-foreground">Experience</h2>
+      <h2 className="text-3xl font-bold mb-12 text-foreground">
+        {t.experienceSection.title}
+      </h2>
       <div className="relative border-l-2 border-border ml-3 md:ml-4 space-y-12">
         {EXPERIENCE_DATA.map((item, index) => (
           <div

@@ -1,8 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function Hero() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <section className="mx-auto max-w-6xl py-10 px-4 md:py-24">
       <div className="container mx-auto max-w-7xl px-4 md:px-6">
@@ -26,8 +33,7 @@ export default function Hero() {
 
             {/* Description */}
             <p className="mt-6 max-w-lg text-xl text-muted-foreground animate-in fade-in slide-in-from-bottom duration-700 delay-200">
-              Transformo ideas complejas en experiencias web memorables y
-              escalables.
+              {t.hero.description}
             </p>
 
             {/* Tech Stack */}
@@ -48,9 +54,9 @@ export default function Hero() {
             {/* Buttons */}
             <div className="mt-8 flex flex-row gap-4 animate-in fade-in slide-in-from-bottom duration-700 delay-300">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Ver proyectos
+                {t.hero.ViewButton}
               </Button>
-              <Button variant="ghost">Contactar</Button>
+              <Button variant="ghost">{t.hero.ContactButton}</Button>
             </div>
           </div>
 
