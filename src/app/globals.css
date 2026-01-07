@@ -19,6 +19,8 @@
   --accent-foreground: #0f172a;
   --destructive: #ef4444;
   --destructive-foreground: #f8fafc;
+  --card: #ffffff;
+  --card-foreground: #171717;
 
   /* icono principal */
   --icon-primary: oklch(0.588 0.158 241.966);
@@ -61,6 +63,8 @@
   --accent-foreground: #f8fafc;
   --destructive: #7f1d1d;
   --destructive-foreground: #f8fafc;
+  --card: #171717;
+  --card-foreground: #ededed;
 
   /* icono principal */
   --icon-primary: oklch(0.606 0.25 285.93);
@@ -102,6 +106,8 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
 
   /* icono principal */
   --color-icon-primary: var(--icon-primary);
