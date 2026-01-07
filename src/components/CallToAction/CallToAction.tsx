@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function CallToAction() {
@@ -12,13 +12,22 @@ export default function CallToAction() {
           Estoy disponible para nuevos proyectos. Convierte tus ideas en
           realidad con código limpio y escalable.
         </p>
-        <Button
-          // size="lg"
-          className="rounded-full bg-primary shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all"
-        >
-          <Mail className="mr-2 size-4" />
-          Enviar Correo
-        </Button>
+        <div className="flex gap-2 items-center justify-center flex-wrap  ">
+          <Button
+            // size="lg"
+            className="rounded-md bg-primary shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all"
+          >
+            <Mail className="mr-2 size-4" />
+            Enviar Correo
+          </Button>
+          <Button
+            variant={"outline"}
+            className="hover:-translate-y-0.5 transition-all shadow-lg rounded-md"
+          >
+            <Download className="mr-2 size-4" />
+            Download CV
+          </Button>
+        </div>
       </div>
     </section>
   );
