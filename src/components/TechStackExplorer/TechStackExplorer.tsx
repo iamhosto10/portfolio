@@ -3,11 +3,7 @@
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import {
-  Layout,
-  Server,
-  Wrench,
-} from "lucide-react";
+import { Layout, Server, Wrench } from "lucide-react";
 import {
   SiReact,
   SiNextdotjs,
@@ -139,7 +135,7 @@ export default function TechStackExplorer() {
   const tabs = ["All", ...TECH_DATA.map((cat) => cat.title)];
 
   return (
-    <section className="py-16 bg-muted/40 lg:py-24">
+    <section className="container max-w-5xl mx-auto px-6 md:px-16 py-10">
       <div className="container px-4 mx-auto md:px-6">
         {/* Header */}
         <div className="text-center">
@@ -147,8 +143,8 @@ export default function TechStackExplorer() {
             Habilidades Técnicas
           </h2>
           <p className="max-w-2xl mx-auto mt-4 text-muted-foreground">
-            Explora mi stack tecnológico organizado por áreas de especialización.
-            Selecciona una categoría para filtrar.
+            Explora mi stack tecnológico organizado por áreas de
+            especialización. Selecciona una categoría para filtrar.
           </p>
         </div>
 
@@ -190,9 +186,9 @@ export default function TechStackExplorer() {
                 {category.skills.map((skill) => (
                   <Card
                     key={skill.name}
-                    className="flex flex-col items-center justify-center h-full p-6 text-center transition-all duration-300 border shadow-sm bg-card hover:shadow-lg hover:-translate-y-1 animate-in zoom-in-95 fade-in duration-500 cursor-default"
+                    className="flex flex-col items-center justify-center h-full p-6 text-center transition-all duration-300 border shadow-xl rounded-xl border-muted/50 dark:shadow-primary/10 hover:-translate-y-1 animate-in zoom-in-95 fade-in duration-500 cursor-pointer"
                   >
-                    <skill.icon className="w-10 h-10 text-4xl text-foreground" />
+                    <skill.icon className="w-10 h-10 text-4xl text-primary" />
                     <h4 className="mt-4 font-bold text-foreground">
                       {skill.name}
                     </h4>
