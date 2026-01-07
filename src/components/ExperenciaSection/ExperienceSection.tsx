@@ -1,4 +1,3 @@
-import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -64,7 +63,7 @@ export const ExperienceSection = () => {
               <h3 className="font-bold text-xl text-foreground">{item.role}</h3>
               <Badge
                 variant="secondary"
-                className="w-fit mt-1 sm:mt-0 rounded-full bg-primary/10 text-primary hover:bg-primary/20 border-none"
+                className="bg-primary/20 text-primary rounded-md cursor-pointer"
               >
                 {item.date}
               </Badge>
@@ -86,7 +85,7 @@ export const ExperienceSection = () => {
                 <Badge
                   key={tech}
                   variant="secondary"
-                  className="bg-primary/20 text-primary hover:bg-primary/30 border-none"
+                  className="bg-primary/20 text-primary rounded-md cursor-pointer"
                 >
                   {tech}
                 </Badge>

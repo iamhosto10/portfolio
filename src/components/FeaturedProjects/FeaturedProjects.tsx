@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Eye, Code2, Zap, CheckCircle2 } from "lucide-react";
+import { Badge } from "../ui/badge";
 
 interface Project {
   id: number;
@@ -106,12 +107,12 @@ const FeaturedProjects = () => {
           {PROJECTS.map((project, index) => (
             <Card
               key={project.id}
-              className={`overflow-hidden border-border bg-card animate-in fade-in slide-in-from-bottom-8 duration-700 ${
+              className={`border shadow-xl rounded-xl border-muted/50 dark:shadow-primary/10 overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-700 ${
                 index % 2 === 1 ? "delay-300" : ""
               }`}
             >
               {/* Header: Image & Status */}
-              <div className="relative aspect-video bg-muted rounded-t-xl overflow-hidden group">
+              <div className="relative aspect-video bg-muted rounded-t-md overflow-hidden group">
                 {/* Placeholder content for image */}
                 <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/20">
                   <span className="text-6xl font-black opacity-20 select-none">
@@ -162,12 +163,13 @@ const FeaturedProjects = () => {
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.stack.map((tech) => (
-                    <span
+                    <Badge
                       key={tech}
-                      className="bg-primary/20 text-primary text-xs rounded-md px-2.5 py-1 font-medium"
+                      variant={"secondary"}
+                      className="bg-primary/20 text-primary rounded-md cursor-pointer"
                     >
                       {tech}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
 

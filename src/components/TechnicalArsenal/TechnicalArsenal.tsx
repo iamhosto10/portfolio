@@ -49,7 +49,7 @@ export const TechnicalArsenal = () => {
             key={tech.name}
             className={cn(
               "aspect-square w-full md:w-28 md:h-28",
-              "bg-card rounded-xl shadow-sm border border-border/50",
+              "border shadow-xl rounded-xl border-muted/50 dark:shadow-primary/10 cursor-pointer",
               "hover:shadow-md hover:-translate-y-1 transition-all duration-300",
               "flex flex-col items-center justify-center gap-3",
               "animate-in zoom-in-50 fade-in duration-500 fill-mode-both"
