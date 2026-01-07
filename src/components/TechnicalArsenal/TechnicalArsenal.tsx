@@ -38,7 +38,7 @@ const technologies = [
 
 export const TechnicalArsenal = () => {
   return (
-    <div className="rounded-3xl p-8 md:p-12 bg-muted/50">
+    <div className="rounded-3xl p-8 md:p-12">
       <h2 className="text-2xl font-bold text-center mb-8 text-foreground">
         Technical Arsenal
       </h2>

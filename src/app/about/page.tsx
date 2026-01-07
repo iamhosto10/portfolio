@@ -3,6 +3,7 @@ import CorePrinciples from "@/components/CorePrinciples/CorePrinciples";
 import ExperienceSection from "@/components/ExperenciaSection/ExperienceSection";
 import MyStoryCard from "@/components/MyStoryCard/MyStoryCard";
 import ProfileHeader from "@/components/ProfileHeader/ProfileHeader";
+import { TechnicalArsenal } from "@/components/TechnicalArsenal/TechnicalArsenal";
 
 const page = () => {
   return (
@@ -11,6 +12,7 @@ const page = () => {
       <MyStoryCard />
       <CorePrinciples />
       <ExperienceSection />
+      <TechnicalArsenal />
       <CallToAction />
     </main>
   );
