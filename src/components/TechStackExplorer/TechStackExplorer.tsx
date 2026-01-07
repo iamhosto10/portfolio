@@ -182,11 +182,11 @@ export default function TechStackExplorer() {
               </div>
 
               {/* Skills Grid */}
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid grid-cols-1 gap-8 md:gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {category.skills.map((skill) => (
                   <Card
                     key={skill.name}
-                    className="flex flex-col items-center justify-center h-full p-6 text-center transition-all duration-300 border shadow-xl rounded-xl border-muted/50 dark:shadow-primary/10 hover:-translate-y-1 animate-in zoom-in-95 fade-in duration-500 cursor-pointer"
+                    className="flex flex-col items-center justify-center h-full p-6 text-center transition-all duration-300 border shadow-lg md:shadow-xl rounded-xl border-muted/50 md:dark:shadow-primary/10 dark:shadow-primary/70 hover:-translate-y-1 animate-in zoom-in-95 fade-in duration-500 cursor-pointer"
                   >
                     <skill.icon className="w-10 h-10 text-4xl text-primary" />
                     <h4 className="mt-4 font-bold text-foreground">

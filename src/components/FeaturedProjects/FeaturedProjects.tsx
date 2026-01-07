@@ -107,7 +107,7 @@ const FeaturedProjects = () => {
           {PROJECTS.map((project, index) => (
             <Card
               key={project.id}
-              className={`border shadow-xl rounded-xl border-muted/50 dark:shadow-primary/10 overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-700 ${
+              className={`border shadow-lg md:shadow-xl rounded-xl border-muted/50 md:dark:shadow-primary/10 dark:shadow-primary/70 overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-700 ${
                 index % 2 === 1 ? "delay-300" : ""
               }`}
             >

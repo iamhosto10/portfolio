@@ -52,7 +52,7 @@ export default function Skills() {
           {skillsData.map((category, index) => (
             <Card
               key={category.title}
-              className="border shadow-xl rounded-xl border-muted/50 dark:shadow-primary/10 text-card-foreground animate-in slide-in-from-bottom-6 fade-in duration-700 fill-mode-forwards"
+              className="border shadow-lg md:shadow-xl rounded-xl border-muted/50 md:dark:shadow-primary/10 dark:shadow-primary/70 text-card-foreground animate-in slide-in-from-bottom-6 fade-in duration-700 fill-mode-forwards"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <CardHeader className="pb-4">
