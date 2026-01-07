@@ -37,7 +37,7 @@ export default function Hero() {
                   <Badge
                     key={tech}
                     variant="secondary"
-                    className="bg-primary/20 text-primary rounded-md"
+                    className="bg-primary/20 text-primary rounded-md cursor-pointer"
                   >
                     {tech}
                   </Badge>
