@@ -11,6 +11,8 @@ interface Project {
   name: string;
   category: string;
   status: "production" | "mvp" | "research";
+  role: string;
+  duration: string;
   problem: string;
   features: string[];
   stack: string[];
@@ -55,6 +57,8 @@ const FeaturedProjects = () => {
         | "production"
         | "mvp"
         | "research",
+      role: t.featuredProjects.project1.role,
+      duration: t.featuredProjects.project1.duration,
       problem: t.featuredProjects.project1.problem,
       features: t.featuredProjects.project1.features,
       stack: t.featuredProjects.project1.stack,
@@ -67,21 +71,25 @@ const FeaturedProjects = () => {
         | "production"
         | "mvp"
         | "research",
+      role: t.featuredProjects.project2.role,
+      duration: t.featuredProjects.project2.duration,
       problem: t.featuredProjects.project2.problem,
       features: t.featuredProjects.project2.features,
       stack: t.featuredProjects.project2.stack,
     },
     {
       id: 3,
-      name: t.featuredProjects.project2.name,
-      category: t.featuredProjects.project2.category,
-      status: t.featuredProjects.project2.status as
+      name: t.featuredProjects.project3.name,
+      category: t.featuredProjects.project3.category,
+      status: t.featuredProjects.project3.status as
         | "production"
         | "mvp"
         | "research",
-      problem: t.featuredProjects.project2.problem,
-      features: t.featuredProjects.project2.features,
-      stack: t.featuredProjects.project2.stack,
+      role: t.featuredProjects.project3.role,
+      duration: t.featuredProjects.project3.duration,
+      problem: t.featuredProjects.project3.problem,
+      features: t.featuredProjects.project3.features,
+      stack: t.featuredProjects.project3.stack,
     },
   ];
 
@@ -133,9 +141,25 @@ const FeaturedProjects = () => {
                 <h3 className="text-2xl font-bold text-foreground mb-1">
                   {project.name}
                 </h3>
-                <p className="text-sm font-medium text-primary mb-6">
+                <p className="text-sm font-medium text-primary mb-4">
                   {project.category}
                 </p>
+
+                {/* Role & Duration */}
+                <div className="flex flex-wrap gap-x-4 gap-y-2 mb-6 text-sm">
+                  <div className="flex items-center gap-1.5 text-muted-foreground">
+                    <span className="font-bold text-foreground uppercase text-[10px] tracking-wider">
+                      {t.featuredProjects.role}:
+                    </span>
+                    {project.role}
+                  </div>
+                  <div className="flex items-center gap-1.5 text-muted-foreground">
+                    <span className="font-bold text-foreground uppercase text-[10px] tracking-wider">
+                      {t.featuredProjects.duration}:
+                    </span>
+                    {project.duration}
+                  </div>
+                </div>
 
                 {/* Problem Section */}
                 <div className="mb-6">

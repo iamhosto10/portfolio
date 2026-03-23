@@ -134,10 +134,14 @@ export const translations = {
       problem: "THE PROBLEM",
       demo: "View Demo",
       code: "View Code",
+      role: "ROLE",
+      duration: "DURATION",
       project1: {
         name: "Enterprise CRM",
         category: "SaaS B2B • FinTech",
         status: "production",
+        role: "Lead Fullstack Developer",
+        duration: "12 months",
         problem:
           "Legacy systems were causing a 40% efficiency drop in sales tracking and customer relationship management, leading to lost revenue and frustrated teams.",
         features: [
@@ -153,6 +157,8 @@ export const translations = {
         name: "AI Image Generator",
         category: "Generative AI • Creative Tools",
         status: "mvp",
+        role: "Frontend Engineer",
+        duration: "6 months",
         problem:
           "Creatives needed a rapid prototyping tool to generate high-fidelity assets without the steep learning curve of complex 3D modeling software.",
         features: [
@@ -168,6 +174,8 @@ export const translations = {
         name: "E-commerce Platform",
         category: "Retail • Online Shopping",
         status: "research",
+        role: "Backend Developer",
+        duration: "8 months",
         problem:
           "Small businesses struggled to establish an online presence due to high costs and technical barriers, limiting their growth potential in the digital marketplace.",
         features: [
@@ -179,6 +187,30 @@ export const translations = {
         viewButton: "View Project",
         codeButton: "View Code",
       },
+    },
+    pastProjects: {
+      title: "Past Projects",
+      description: "A collection of other projects I've worked on over the years.",
+      projects: [
+        {
+          name: "Social Media Dashboard",
+          year: "2021",
+          description: "A comprehensive dashboard for managing multiple social media accounts.",
+          stack: ["React", "Firebase"],
+        },
+        {
+          name: "Portfolio v1",
+          year: "2020",
+          description: "My first professional portfolio website.",
+          stack: ["HTML", "CSS", "JS"],
+        },
+        {
+          name: "Task Management App",
+          year: "2019",
+          description: "A simple productivity tool for personal task tracking.",
+          stack: ["Vue.js", "LocalStorage"],
+        },
+      ],
     },
     contactForm: {
       title: "Let's Talk About Your Project",
@@ -333,10 +365,14 @@ export const translations = {
       problem: "EL PROBLEMA",
       demo: "Ver Demo",
       code: "Ver Código",
+      role: "ROL",
+      duration: "DURACIÓN",
       project1: {
         name: "Enterprise CRM",
         category: "SaaS B2B • FinTech",
         status: "production",
+        role: "Desarrollador Fullstack Principal",
+        duration: "12 meses",
         problem:
           "Los sistemas heredados estaban causando una caída del 40% en la eficiencia del seguimiento de ventas y la gestión de relaciones con clientes, lo que llevaba a la pérdida de ingresos y equipos frustrados.",
         features: [
@@ -352,6 +388,8 @@ export const translations = {
         name: "AI Image Generator",
         category: "Generative AI • Creative Tools",
         status: "mvp",
+        role: "Ingeniero Frontend",
+        duration: "6 meses",
         problem:
           "Los creativos necesitaban una herramienta de prototipado rápido para generar activos de alta fidelidad sin la curva de aprendizaje empinada del software complejo de modelado 3D.",
         features: [
@@ -367,6 +405,8 @@ export const translations = {
         name: "E-commerce Platform",
         category: "Retail • Online Shopping",
         status: "research",
+        role: "Desarrollador Backend",
+        duration: "8 meses",
         problem:
           "Las pequeñas empresas luchaban por establecer una presencia en línea debido a los altos costos y las barreras técnicas, limitando su potencial de crecimiento en el mercado digital.",
         features: [
@@ -378,6 +418,30 @@ export const translations = {
         viewButton: "Ver Proyecto",
         codeButton: "Ver Código",
       },
+    },
+    pastProjects: {
+      title: "Proyectos Pasados",
+      description: "Una colección de otros proyectos en los que he trabajado a lo largo de los años.",
+      projects: [
+        {
+          name: "Social Media Dashboard",
+          year: "2021",
+          description: "Un panel completo para gestionar múltiples cuentas de redes sociales.",
+          stack: ["React", "Firebase"],
+        },
+        {
+          name: "Portfolio v1",
+          year: "2020",
+          description: "Mi primer sitio web de portafolio profesional.",
+          stack: ["HTML", "CSS", "JS"],
+        },
+        {
+          name: "Task Management App",
+          year: "2019",
+          description: "Una herramienta sencilla de productividad para el seguimiento de tareas personales.",
+          stack: ["Vue.js", "LocalStorage"],
+        },
+      ],
     },
     contactForm: {
       title: "Hablemos de tu proyecto",
