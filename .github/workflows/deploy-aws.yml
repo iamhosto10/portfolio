@@ -35,15 +35,17 @@ jobs:
                   username: ${{ secrets.EC2_USERNAME }}
                   key: ${{ secrets.EC2_SSH_KEY }}
                   script: |
-                      # Descargar última imagen
-                      docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mi-portafolio:latest
+                      # 🔐 Login en Docker Hub (IMPORTANTE)
+                        docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+                      # 📥 Descargar imagen
+                        docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mi-portafolio:latest
 
-                      # Detener contenedor viejo
-                      docker stop portafolio-app || true
-                      docker rm portafolio-app || true
+                      # 🛑 Detener contenedor viejo
+                        docker stop portafolio-app || true
+                        docker rm portafolio-app || true
 
-                      # Levantar nuevo contenedor
-                      docker run -d -p 80:3000 \
+                      # 🚀 Levantar nuevo contenedor
+                        docker run -d -p 80:3000 \
                         --name portafolio-app \
                         ${{ secrets.DOCKERHUB_USERNAME }}/mi-portafolio:latest
 
