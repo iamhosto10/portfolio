@@ -5,90 +5,25 @@ on:
         branches: ["main"]
 
 jobs:
-    deploy:
+    build:
         runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Source
+              uses: actions/checkout@v4
+            - name: Login to docker hub
+              run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+            - name: Build Docker Image
+              run: docker build -t iamhosto1000/mi-portfolio:latest .
+            - name: Publish Image to docker hub
+              run: docker push iamhosto1000/mi-portafolio:latest
+    deploy:
+        needs: build
+        runs-on: self-hosted
 
         steps:
-            - name: 📥 Checkout
-              uses: actions/checkout@v4
-
-            # 🐳 Login en Docker Hub
-            - name: 🔐 Login Docker Hub
-              uses: docker/login-action@v3
-              with:
-                  username: ${{ secrets.DOCKERHUB_USERNAME }}
-                  password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-            # 🏗️ Build y push de la imagen
-            - name: 🏗️ Build & Push Docker image
-              uses: docker/build-push-action@v5
-              with:
-                  context: .
-                  push: true
-                  tags: ${{ secrets.DOCKERHUB_USERNAME }}/mi-portafolio:latest
-
-            # 🚀 Deploy en EC2 (solo pull y run)
-            - name: 🚀 Deploy en EC2
-              uses: appleboy/ssh-action@v1.0.3
-              with:
-                  host: ${{ secrets.EC2_HOST }}
-                  username: ${{ secrets.EC2_USERNAME }}
-                  key: ${{ secrets.EC2_SSH_KEY }}
-                  script: |
-                      # 🔐 Login en Docker Hub (IMPORTANTE)
-                        docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
-                      # 📥 Descargar imagen
-                        docker pull ${{ secrets.DOCKERHUB_USERNAME }}/mi-portafolio:latest
-
-                      # 🛑 Detener contenedor viejo
-                        docker stop portafolio-app || true
-                        docker rm portafolio-app || true
-
-                      # 🚀 Levantar nuevo contenedor
-                        docker run -d -p 80:3000 \
-                        --name portafolio-app \
-                        ${{ secrets.DOCKERHUB_USERNAME }}/mi-portafolio:latest
-
-# name: Despliegue en AWS EC2
-
-# on:
-#     push:
-#         branches: ["main"]
-
-# jobs:
-#     deploy:
-#         runs-on: ubuntu-latest
-
-#         steps:
-#             - name: 📥 1. Descargar el código
-#               uses: actions/checkout@v4
-
-#             - name: 📂 2. Enviar archivos al servidor AWS
-#               uses: appleboy/scp-action@v0.1.7
-#               with:
-#                   host: ${{ secrets.EC2_HOST }}
-#                   username: ${{ secrets.EC2_USERNAME }}
-#                   key: ${{ secrets.EC2_SSH_KEY }}
-#                   source: "."
-#                   target: "/home/ubuntu/portfolio"
-
-#             - name: 🚀 3. Construir y Desplegar con Docker en AWS
-#               uses: appleboy/ssh-action@v1.0.3
-#               with:
-#                   host: ${{ secrets.EC2_HOST }}
-#                   username: ${{ secrets.EC2_USERNAME }}
-#                   key: ${{ secrets.EC2_SSH_KEY }}
-#                   script: |
-#                       # Entramos a la carpeta donde acabamos de enviar los archivos
-#                       cd /home/ubuntu/portfolio
-
-#                       # Construimos la "caja" de Docker con el código nuevo
-#                       docker build -t mi-portafolio .
-
-#                       # Detenemos y borramos la versión anterior (si existía)
-#                       docker stop portafolio-app || true
-#                       docker rm portafolio-app || true
-
-#                       # Encendemos la nueva versión.
-#                       # OJO: Conectamos el puerto 80 del servidor al 3000 del contenedor
-#                       docker run -d -p 80:3000 --name portafolio-app mi-portafolio
+            - name: Pull image from docker hub
+              run: docker pull iamhosto1000/easybank:latest
+            - name: Delete old container
+              run: docker rm -f easybank-container || true
+            - name: Run Docker Container
+              run: docker run -d -p 80:80 --name easybank-container iamhosto1000/easybank:latest
