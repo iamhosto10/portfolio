@@ -13,17 +13,16 @@ jobs:
             - name: Login to docker hub
               run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
             - name: Build Docker Image
-              run: docker build -t iamhosto1000/mi-portfolio:latest .
+              run: docker build -t iamhosto1000/mi-portafolio:latest .
             - name: Publish Image to docker hub
               run: docker push iamhosto1000/mi-portafolio:latest
     deploy:
         needs: build
         runs-on: self-hosted
-
         steps:
             - name: Pull image from docker hub
-              run: docker pull iamhosto1000/easybank:latest
+              run: docker pull iamhosto1000/mi-portafolio:latest
             - name: Delete old container
-              run: docker rm -f easybank-container || true
+              run: docker rm -f mi-portafolio-container || true
             - name: Run Docker Container
-              run: docker run -d -p 80:80 --name easybank-container iamhosto1000/easybank:latest
+              run: docker run -d -p 80:80 --name mi-portafolio-container iamhosto1000/mi-portafolio:latest
