@@ -8,6 +8,7 @@ import {
   SiAmazonwebservices,
   SiTailwindcss,
 } from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
 
 const technologies = [
   {
@@ -19,13 +20,18 @@ const technologies = [
     icon: SiReact,
   },
   {
-    name: "TypeScript",
-    icon: SiTypescript,
+    name: "React Native",
+    icon: TbBrandReactNative,
   },
   {
     name: "Node.js",
     icon: SiNodedotjs,
   },
+  {
+    name: "TypeScript",
+    icon: SiTypescript,
+  },
+
   {
     name: "AWS",
     icon: SiAmazonwebservices,
@@ -52,7 +58,7 @@ export const TechnicalArsenal = () => {
               "border shadow-lg md:shadow-xl rounded-xl border-muted/50 md:dark:shadow-primary/10 dark:shadow-primary/70 cursor-pointer",
               "hover:shadow-md hover:-translate-y-1 transition-all duration-300",
               "flex flex-col items-center justify-center gap-3",
-              "animate-in zoom-in-50 fade-in duration-500 fill-mode-both"
+              "animate-in zoom-in-50 fade-in duration-500 fill-mode-both",
             )}
             style={{ animationDelay: `${index * 100}ms` }}
           >

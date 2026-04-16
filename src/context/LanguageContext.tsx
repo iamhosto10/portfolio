@@ -6,10 +6,12 @@ import { translations, Language } from "@/lib/translations";
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: typeof translations["en"];
+  t: (typeof translations)["en"];
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined,
+);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>("en");
@@ -20,11 +22,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (savedLanguage && (savedLanguage === "en" || savedLanguage === "es")) {
       setLanguageState(savedLanguage);
     } else {
-        // Optional: Detect browser language
-        const browserLang = navigator.language.split('-')[0];
-        if (browserLang === 'es') {
-            setLanguageState('es');
-        }
+      // Optional: Detect browser language
+      const browserLang = navigator.language.split("-")[0];
+      if (browserLang === "es") {
+        setLanguageState("es");
+      }
     }
     setMounted(true);
   }, []);
@@ -36,14 +38,18 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   if (!mounted) {
     return (
-        <LanguageContext.Provider value={{ language: "en", setLanguage, t: translations["en"] }}>
-            {children}
-        </LanguageContext.Provider>
-    )
+      <LanguageContext.Provider
+        value={{ language: "en", setLanguage, t: translations["en"] }}
+      >
+        {children}
+      </LanguageContext.Provider>
+    );
   }
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t: translations[language] }}>
+    <LanguageContext.Provider
+      value={{ language, setLanguage, t: translations[language] }}
+    >
       {children}
     </LanguageContext.Provider>
   );

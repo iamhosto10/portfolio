@@ -14,6 +14,8 @@ interface Project {
   problem: string;
   features: string[];
   stack: string[];
+  viewButtonLink: string;
+  CodeButtonLink: string;
 }
 
 const getStatusColor = (status: Project["status"]) => {
@@ -58,6 +60,8 @@ const FeaturedProjects = () => {
       problem: t.featuredProjects.project1.problem,
       features: t.featuredProjects.project1.features,
       stack: t.featuredProjects.project1.stack,
+      viewButtonLink: t.featuredProjects.project1.viewButtonLink,
+      CodeButtonLink: t.featuredProjects.project1.CodeButtonLink,
     },
     {
       id: 2,
@@ -70,18 +74,22 @@ const FeaturedProjects = () => {
       problem: t.featuredProjects.project2.problem,
       features: t.featuredProjects.project2.features,
       stack: t.featuredProjects.project2.stack,
+      viewButtonLink: t.featuredProjects.project2.viewButtonLink,
+      CodeButtonLink: t.featuredProjects.project2.CodeButtonLink,
     },
     {
       id: 3,
-      name: t.featuredProjects.project2.name,
-      category: t.featuredProjects.project2.category,
-      status: t.featuredProjects.project2.status as
+      name: t.featuredProjects.project3.name,
+      category: t.featuredProjects.project3.category,
+      status: t.featuredProjects.project3.status as
         | "production"
         | "mvp"
         | "research",
-      problem: t.featuredProjects.project2.problem,
-      features: t.featuredProjects.project2.features,
-      stack: t.featuredProjects.project2.stack,
+      problem: t.featuredProjects.project3.problem,
+      features: t.featuredProjects.project3.features,
+      stack: t.featuredProjects.project3.stack,
+      viewButtonLink: t.featuredProjects.project3.viewButtonLink,
+      CodeButtonLink: t.featuredProjects.project3.CodeButtonLink,
     },
   ];
 
@@ -121,7 +129,7 @@ const FeaturedProjects = () => {
 
                 <div
                   className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold text-white shadow-md ${getStatusColor(
-                    project.status
+                    project.status,
                   )}`}
                 >
                   {getStatusLabel(project.status)}
@@ -139,10 +147,10 @@ const FeaturedProjects = () => {
 
                 {/* Problem Section */}
                 <div className="mb-6">
-                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2 block">
+                  <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-2 block  whitespace-pre-line">
                     {t.featuredProjects.problem}
-                  </span>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
                     {project.problem}
                   </p>
                 </div>
@@ -174,17 +182,29 @@ const FeaturedProjects = () => {
 
                 {/* Actions */}
                 <div className="flex gap-4">
-                  <Button className="rounded-md bg-primary shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all">
-                    <Eye className="w-4 h-4" />
-                    {t.featuredProjects.demo}
-                  </Button>
-                  <Button
-                    variant={"outline"}
-                    className="hover:-translate-y-0.5 transition-all shadow-lg rounded-md"
+                  <a
+                    href={project.viewButtonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <Code2 className="w-4 h-4" />
-                    {t.featuredProjects.code}
-                  </Button>
+                    <Button className="rounded-md bg-primary shadow-lg shadow-primary/25 hover:bg-primary/90 hover:-translate-y-0.5 transition-all">
+                      <Eye className="w-4 h-4" />
+                      {t.featuredProjects.demo}
+                    </Button>
+                  </a>
+                  <a
+                    href={project.CodeButtonLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      variant={"outline"}
+                      className="hover:-translate-y-0.5 transition-all shadow-lg rounded-md"
+                    >
+                      <Code2 className="w-4 h-4" />
+                      {t.featuredProjects.code}
+                    </Button>
+                  </a>
                 </div>
               </div>
             </Card>

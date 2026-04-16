@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/lib/translations";
+import Link from "next/link";
 
 export default function Hero() {
   const { language } = useLanguage();
@@ -38,25 +39,34 @@ export default function Hero() {
 
             {/* Tech Stack */}
             <div className="mt-6 flex flex-wrap justify-center gap-2 lg:justify-start animate-in fade-in slide-in-from-bottom duration-700 delay-300">
-              {["Next.js", "React", "TypeScript", "Node.js", "AWS"].map(
-                (tech) => (
-                  <Badge
-                    key={tech}
-                    variant="secondary"
-                    className="bg-primary/20 text-primary rounded-md cursor-pointer"
-                  >
-                    {tech}
-                  </Badge>
-                )
-              )}
+              {[
+                "Next.js",
+                "React",
+                "React Native",
+                "Node.js",
+                "TypeScript",
+                "AWS",
+              ].map((tech) => (
+                <Badge
+                  key={tech}
+                  variant="secondary"
+                  className="bg-primary/20 text-primary rounded-md cursor-pointer"
+                >
+                  {tech}
+                </Badge>
+              ))}
             </div>
 
             {/* Buttons */}
             <div className="mt-8 flex flex-row gap-4 animate-in fade-in slide-in-from-bottom duration-700 delay-300">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-                {t.hero.ViewButton}
-              </Button>
-              <Button variant="ghost">{t.hero.ContactButton}</Button>
+              <Link href="/projects">
+                <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+                  {t.hero.ViewButton}
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button variant="ghost">{t.hero.ContactButton}</Button>
+              </Link>
             </div>
           </div>
 

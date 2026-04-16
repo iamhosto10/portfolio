@@ -68,7 +68,7 @@ export default function Navbar() {
                   "text-sm font-medium transition-colors hover:text-primary",
                   isActive
                     ? "text-primary font-semibold"
-                    : "text-muted-foreground"
+                    : "text-muted-foreground",
                 )}
               >
                 {link.name}
@@ -93,10 +93,18 @@ export default function Navbar() {
               <Sun className="h-5 w-5" />
             )}
           </Button>
-          <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-            <Download className="mr-2 size-4" />
-            Download CV
-          </Button>
+          <a
+            href={
+              "https://drive.google.com/file/d/1DRtw-o_ZW_33KUTinpsYlzSM-bvTwnEg/view?usp=sharing"
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Download className="mr-2 size-4" />
+              Download CV
+            </Button>
+          </a>
         </div>
 
         {/* Mobile Menu */}
@@ -142,7 +150,7 @@ export default function Navbar() {
                           "text-lg font-medium transition-colors hover:text-primary",
                           isActive
                             ? "text-primary font-semibold"
-                            : "text-muted-foreground"
+                            : "text-muted-foreground",
                         )}
                       >
                         {link.name}
@@ -151,10 +159,16 @@ export default function Navbar() {
                   );
                 })}
                 <div className="mt-8">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                    <Download className="mr-2 size-4" />
-                    Download CV
-                  </Button>
+                  <a
+                    href="https://drive.google.com/file/d/1DRtw-o_ZW_33KUTinpsYlzSM-bvTwnEg/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                      <Download className="mr-2 size-4" />
+                      Download CV
+                    </Button>
+                  </a>
                 </div>
               </div>
             </SheetContent>

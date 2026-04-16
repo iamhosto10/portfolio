@@ -20,6 +20,8 @@ import {
   SiJira,
   SiVercel,
 } from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
+import { SiGithubactions } from "react-icons/si";
 
 // ----------------------------------------------------------------------
 // Types & Data
@@ -55,14 +57,14 @@ const TECH_DATA: Category[] = [
         icon: SiNextdotjs,
       },
       {
+        name: "React Native",
+        description: "Cross-Platform Mobile",
+        icon: TbBrandReactNative,
+      },
+      {
         name: "Tailwind CSS",
         description: "Modern Styling",
         icon: SiTailwindcss,
-      },
-      {
-        name: "Framer Motion",
-        description: "Complex Animations",
-        icon: SiFramer,
       },
     ],
   },
@@ -148,15 +150,15 @@ export default function TechStackExplorer() {
           icon: SiNextdotjs,
         },
         {
+          name: "React Native",
+          description: "Cross-Platform Mobile",
+          icon: TbBrandReactNative,
+        },
+        {
           name: "Tailwind CSS",
           description: t.techStackExplorer.frontendDescription[2],
 
           icon: SiTailwindcss,
-        },
-        {
-          name: "Framer Motion",
-          description: t.techStackExplorer.frontendDescription[3],
-          icon: SiFramer,
         },
       ],
     },
@@ -201,17 +203,17 @@ export default function TechStackExplorer() {
         },
         {
           name: "Figma",
-          description: t.techStackExplorer.toolsDescription[0],
+          description: t.techStackExplorer.toolsDescription[1],
           icon: SiFigma,
         },
         {
-          name: "Agile",
-          description: t.techStackExplorer.toolsDescription[0],
-          icon: SiJira,
+          name: "Github Actions",
+          description: t.techStackExplorer.toolsDescription[2],
+          icon: SiGithubactions,
         },
         {
           name: "Vercel",
-          description: t.techStackExplorer.toolsDescription[0],
+          description: t.techStackExplorer.toolsDescription[3],
           icon: SiVercel,
         },
       ],
@@ -248,7 +250,7 @@ export default function TechStackExplorer() {
                 "rounded-full px-6 py-2 text-sm font-medium transition-all cursor-pointer",
                 activeCategory === tab
                   ? "bg-primary text-primary-foreground shadow-md"
-                  : "bg-transparent text-muted-foreground hover:text-foreground hover:bg-muted"
+                  : "bg-transparent text-muted-foreground hover:text-foreground hover:bg-muted",
               )}
             >
               {tab}

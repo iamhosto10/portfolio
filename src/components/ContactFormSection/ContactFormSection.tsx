@@ -32,6 +32,42 @@ export default function ContactFormSection() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const [form, setForm] = React.useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setForm({
+      ...form,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(form),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (res.ok) {
+        alert("Mensaje enviado 🚀");
+        setForm({ name: "", email: "", message: "" });
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <section className="container max-w-5xl mx-auto px-6 md:px-16 py-10">
       <div className="max-w-2xl mx-auto px-4 animate-in slide-in-from-bottom-4 fade-in duration-700">
@@ -101,7 +137,7 @@ export default function ContactFormSection() {
                 className="h-8 w-8 text-muted-foreground hover:text-foreground"
               >
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/gerardoramirez-developer/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -122,13 +158,15 @@ export default function ContactFormSection() {
 
         {/* Main Form */}
         <Card className="border shadow-lg md:shadow-xl rounded-xl border-muted/50 md:dark:shadow-primary/10 dark:shadow-primary/70 p-8 ">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <Label htmlFor="name">{t.contactForm.labelName}</Label>
               <div className="relative">
                 <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="name"
+                  value={form.name}
+                  onChange={handleChange}
                   placeholder={t.contactForm.placeholderName}
                   className="pl-10"
                   type="text"
@@ -142,6 +180,8 @@ export default function ContactFormSection() {
                 <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="email"
+                  value={form.email}
+                  onChange={handleChange}
                   placeholder={t.contactForm.placeholderEmail}
                   className="pl-10"
                   type="email"
@@ -153,6 +193,8 @@ export default function ContactFormSection() {
               <Label htmlFor="message">{t.contactForm.labelDetails}</Label>
               <Textarea
                 id="message"
+                value={form.message}
+                onChange={handleChange}
                 placeholder={t.contactForm.placeholderDetails}
                 className="min-h-30"
               />

@@ -21,7 +21,13 @@ export default function Skills() {
     {
       title: t.skillsData1.title,
       icon: Monitor,
-      skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Zustand"],
+      skills: [
+        "React",
+        "Next.js",
+        "React Native",
+        "TypeScript",
+        "Tailwind CSS",
+      ],
       colorVar: "var(--skill-frontend)",
       bgVar: "var(--skill-frontend-bg)",
     },

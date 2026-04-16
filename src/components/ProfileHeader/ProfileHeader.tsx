@@ -15,7 +15,7 @@ export default function ProfileHeader() {
       <div className="relative animate-in zoom-in-50 duration-700 ease-out">
         <Avatar className="h-32 w-32 rounded-full shadow-xl shadow-primary/20">
           <AvatarImage
-            src="https://media.licdn.com/dms/image/v2/D4E03AQEN192pOoOKUw/profile-displayphoto-crop_800_800/B4EZrfuxjPKoAM-/0/1764690172790?e=1769644800&v=beta&t=zfs-n_casedrhwMwhKivXk0PWNRyrAuv0UEHTvR_Glg"
+            src="https://avatars.githubusercontent.com/u/28761277?v=4"
             alt="@shadcn"
           />
           <AvatarFallback>GR</AvatarFallback>
@@ -46,22 +46,36 @@ export default function ProfileHeader() {
 
       {/* Socials Section */}
       <div className="flex gap-2 animate-in slide-in-from-bottom-4 fade-in duration-700 delay-200">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="text-social-network-icon hover:text-social-network-hover"
+        <a
+          href="https://github.com/iamhosto10"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
         >
-          <Github className="size-5" />
-          <span className="sr-only">GitHub</span>
-        </Button>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="text-social-network-icon hover:text-social-network-hover"
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-social-network-icon hover:text-social-network-hover"
+          >
+            <Github className="size-5" />
+            <span className="sr-only">GitHub</span>
+          </Button>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/gerardoramirez-developer"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
         >
-          <Linkedin className="size-5" />
-          <span className="sr-only">LinkedIn</span>
-        </Button>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-social-network-icon hover:text-social-network-hover"
+          >
+            <Linkedin className="size-5" />
+            <span className="sr-only">LinkedIn</span>
+          </Button>
+        </a>
       </div>
     </div>
   );

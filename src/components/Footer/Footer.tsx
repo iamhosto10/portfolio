@@ -24,7 +24,7 @@ const Footer = () => {
             className="h-10 w-10 text-social-network-icon hover:text-social-network-hover"
           >
             <a
-              href="https://github.com"
+              href="https://github.com/iamhosto10"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -39,7 +39,7 @@ const Footer = () => {
             className="h-10 w-10 text-social-network-icon hover:text-social-network-hover"
           >
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/gerardoramirez-developer"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"

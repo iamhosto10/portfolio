@@ -58,8 +58,8 @@ export const ExperienceSection = () => {
             {/* A. Marker (Dot) */}
             <div
               className={cn(
-                "absolute -left-[9px] top-1 h-4 w-4 rounded-full transition-colors duration-300",
-                index === 0 ? "bg-primary ring-4 ring-primary/20" : "bg-muted"
+                "absolute -left-2.25 top-1 h-4 w-4 rounded-full transition-colors duration-300",
+                index === 0 ? "bg-primary ring-4 ring-primary/20" : "bg-muted",
               )}
             />
 
@@ -79,7 +79,7 @@ export const ExperienceSection = () => {
               <p className="font-medium text-lg text-foreground">
                 {item.company}
               </p>
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mt-1">
+              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mt-1  whitespace-pre-line">
                 {item.description}
               </p>
             </div>
